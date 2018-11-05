@@ -1,0 +1,5 @@
+tech/tcpip/procesar/ioc/Configuration.class
+tech/tcpip/procesar/handlers/CustomHandler.class
+tech/tcpip/procesar/dto/ProcesarRequest.class
+tech/tcpip/procesar/dto/ProcesarResponse.class
+tech/tcpip/procesar/Server.class
