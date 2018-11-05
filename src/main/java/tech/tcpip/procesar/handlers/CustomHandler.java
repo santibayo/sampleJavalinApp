@@ -1,6 +1,7 @@
 package tech.tcpip.procesar.handlers;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import io.javalin.Context;
 import io.javalin.Handler;
 import org.slf4j.Logger;
@@ -11,8 +12,20 @@ import tech.tcpip.procesar.dto.ProcesarResponse;
 import tech.tcpip.procesar.operations.Command;
 
 public class CustomHandler implements Handler {
-    Logger logger = LoggerFactory.getLogger(CustomHandler.class);
-    Command service= Server.getInjector().getInstance(Command.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomHandler.class);
+    private Command service;
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public Command getService() {
+        return service;
+    }
+
+    public void setService(Command service) {
+        this.service = service;
+    }
 
     @Override
     public void handle(Context ctx) throws Exception {

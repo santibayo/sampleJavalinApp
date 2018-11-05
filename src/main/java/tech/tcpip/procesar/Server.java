@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.name.Names;
 import io.javalin.Handler;
 import io.javalin.Javalin;
 
@@ -38,7 +40,7 @@ public class Server {
 
         // configuramos el puerto
         Javalin app = Javalin.create().start(defaultPort);
-        Handler handler = new CustomHandler();
+        Handler handler = getInjector().getInstance(Key.get(Handler.class, Names.named("ProcesarHandler")));
         // arrancamos el servicio
         app.post("/service", handler);
 

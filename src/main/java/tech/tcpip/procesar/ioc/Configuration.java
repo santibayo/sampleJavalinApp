@@ -4,8 +4,10 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import io.javalin.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tech.tcpip.procesar.handlers.CustomHandler;
 import tech.tcpip.procesar.operations.Command;
 import tech.tcpip.procesar.operations.ProcesarCommand;
 
@@ -16,7 +18,18 @@ public class Configuration extends AbstractModule {
 
     }
 
+
     @Provides
+    @Named("ProcesarHandler")
+    @Singleton
+    public Handler getProcesarHandler(@Named("ProcesarCommand") Command cmd){
+        CustomHandler handler = new CustomHandler();
+        handler.setService(cmd);
+        return handler;
+    }
+
+    @Provides
+    @Named("ProcesarCommand")
     @Singleton
     public Command getCommand(){
         return new ProcesarCommand();
