@@ -1,6 +1,7 @@
 package tech.tcpip.procesar.dao;
 
 import tech.tcpip.procesar.dto.ProcesarRequest;
+import tech.tcpip.procesar.errors.DaoException;
 
 import java.util.Map;
 
@@ -10,5 +11,5 @@ import java.util.Map;
 public interface ProcesarDao {
 
 
-    public Map<String,String> consultaDatos(ProcesarRequest request)throws Exception;
+    public Map<String,String> consultaDatos(ProcesarRequest request)throws DaoException;
 }

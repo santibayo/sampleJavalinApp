@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import tech.tcpip.procesar.dao.ProcesarDao;
 import tech.tcpip.procesar.dto.ProcesarRequest;
 import tech.tcpip.procesar.dto.ProcesarResponse;
+import tech.tcpip.procesar.errors.CommandBoException;
+import tech.tcpip.procesar.errors.DaoException;
 import tech.tcpip.procesar.ioc.Configuration;
 
 public class ProcesarCommand implements Command {
@@ -16,7 +18,7 @@ public class ProcesarCommand implements Command {
     }
 
     @Override
-    public void perform(ProcesarRequest request, ProcesarResponse response) {
+    public void perform(ProcesarRequest request, ProcesarResponse response) throws DaoException,CommandBoException {
 
         //
         response.setFolio("00000000000000000000");
