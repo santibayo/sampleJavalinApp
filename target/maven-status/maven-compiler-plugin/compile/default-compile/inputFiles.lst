@@ -1,5 +1,9 @@
-/home/bittween/IdeaProjects/JavalinServer/src/main/java/tech/tcpip/procesar/Server.java
-/home/bittween/IdeaProjects/JavalinServer/src/main/java/tech/tcpip/procesar/ioc/Configuration.java
-/home/bittween/IdeaProjects/JavalinServer/src/main/java/tech/tcpip/procesar/handlers/CustomHandler.java
-/home/bittween/IdeaProjects/JavalinServer/src/main/java/tech/tcpip/procesar/dto/ProcesarRequest.java
-/home/bittween/IdeaProjects/JavalinServer/src/main/java/tech/tcpip/procesar/dto/ProcesarResponse.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/Server.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/ioc/Configuration.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/dto/ProcesarRequest.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/dto/ProcesarResponse.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/dao/ProcesarDao.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/operations/ProcesarCommand.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/handlers/CustomHandler.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/dao/ProcesarDaoImpl.java
+/Users/santiago/sampleJavalinApp/src/main/java/tech/tcpip/procesar/operations/Command.java
