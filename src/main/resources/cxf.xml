@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:cxf="http://cxf.apache.org/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://cxf.apache.org/configuration/security" xmlns:http="http://cxf.apache.org/transports/http/configuration"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:wsa="http://cxf.apache.org/ws/addressing"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xsi:schemaLocation="
+           http://cxf.apache.org/core
+           http://cxf.apache.org/schemas/core.xsd
+           http://cxf.apache.org/configuration/security
+           http://cxf.apache.org/schemas/configuration/security.xsd
+           http://cxf.apache.org/jaxws
+           http://cxf.apache.org/schemas/jaxws.xsd
+           http://cxf.apache.org/transports/http/configuration
+           http://cxf.apache.org/schemas/configuration/http-conf.xsd
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://cxf.apache.org/transports/http/configuration
+           http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+
+
+	 
+	<!-- wsdlLocation="http://192.168.1.61/aportvoluntaria-recaportaciones-ws/RecepcionAportaciones?wsdl" -->
+	
+
+ 	<jaxws:client
+		name="{http://www.procesar.com.mx/RedesComerciales/RecepcionAportaciones/}RecepcionAportacionesPort"
+		wsdlLocation="http://52.41.191.73/aportvoluntaria-recaportaciones-ws/RecepcionAportaciones?wsdl"
+		createdFromAPI="true">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+			<wsa:addressing />
+		</jaxws:features>
+
+		<jaxws:properties>
+			<entry key="ws-security.encryption.properties" value="client.properties" />
+			<!-- PREPRODUCCION -->
+			<entry key="ws-security.encryption.username" value="preproduccion.procesar.net" />
+			<entry key="ws-security.callback-handler" value="mx.com.procesar.cliente.ClientCallback" />
+
+		</jaxws:properties>
+
+	</jaxws:client>
+ 
+
+</beans>

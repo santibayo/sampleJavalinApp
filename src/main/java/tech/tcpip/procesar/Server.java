@@ -8,10 +8,13 @@ import com.google.inject.name.Names;
 import io.javalin.Handler;
 import io.javalin.Javalin;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tech.tcpip.procesar.dto.ErrorBean;
 import tech.tcpip.procesar.errors.CommandBoException;
 import tech.tcpip.procesar.errors.DaoException;
 import tech.tcpip.procesar.ioc.Configuration;
+import tech.tcpip.procesar.operations.ProcesarCommand;
 import tech.tcpip.procesar.operations.ServerOperations;
 
 
@@ -20,6 +23,7 @@ import java.util.Properties;
 
 
 public class Server {
+    private final static Logger logger = LoggerFactory.getLogger(ProcesarCommand.class);
     public static  Injector injector=null;
     static {
         String env = System.getProperty("ENV","develop");
@@ -47,6 +51,7 @@ public class Server {
             String message = e.getMessage();
             ErrorBean errorBean = new ErrorBean();
             errorBean.setErrorMessage(message);
+            logger.warn("DaoException ");
             ServerOperations.cleanMDC();
             ctx.json(errorBean);
             ctx.status(502); // -> Bad Gateway
@@ -55,6 +60,7 @@ public class Server {
             String message = e.getMessage();
             ErrorBean errorBean = new ErrorBean();
             errorBean.setErrorMessage(message);
+            logger.warn("CommandBoException ");
             ServerOperations.cleanMDC();
             ctx.json(errorBean);
             ctx.status(500); // -> Internal Server Error
@@ -63,6 +69,7 @@ public class Server {
             String message = e.getMessage();
             ErrorBean errorBean = new ErrorBean();
             errorBean.setErrorMessage(message);
+            logger.warn("CommandBoException ");
             ServerOperations.cleanMDC();
             ctx.json(errorBean);
             ctx.status(500); // -> Internal Server Error

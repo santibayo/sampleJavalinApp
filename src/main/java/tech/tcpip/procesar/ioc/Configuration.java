@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.tcpip.procesar.dao.ProcesarDao;
 import tech.tcpip.procesar.dao.ProcesarDaoImpl;
+import tech.tcpip.procesar.errors.DaoException;
 import tech.tcpip.procesar.handlers.CustomHandler;
 import tech.tcpip.procesar.operations.Command;
 import tech.tcpip.procesar.operations.ProcesarCommand;
@@ -43,7 +44,7 @@ public class Configuration extends AbstractModule {
     @Provides
     @Named("ProcesarDao")
     @Singleton
-    public ProcesarDao getDao(){
+    public ProcesarDao getDao() throws DaoException {
         ProcesarDaoImpl dao = new ProcesarDaoImpl();
         dao.init();
         return dao;

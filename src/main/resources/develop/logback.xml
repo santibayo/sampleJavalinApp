@@ -4,17 +4,19 @@
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS},[%thread],%-5level,%logger{36},%msg%n</pattern>
+            <pattern>DEVELOP,%d{HH:mm:ss.SSS},[%thread],%X{request-uuid},%X{request-ip},%-5level,%logger{36},%msg%n</pattern>
         </encoder>
     </appender>
 
     <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
-    <logger name="tech.tcpip.procesar" level="DEBUG">
+    <logger name="tech.tcpip.procesar" level="debug">
 
     </logger>
+    <logger name="org.apache" level="info">
 
+    </logger>
 
 
 
